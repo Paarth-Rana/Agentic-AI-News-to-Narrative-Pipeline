@@ -27,7 +27,7 @@ All models used are open-source and run locally (or in Google Colab).
 
 This project has gone through multiple architectural changes:
 
-### v1 — smolAgents (What You See)
+### v1 — smolAgents (Old and Dysfunctional)
 - Initial exploration of tool-based agents
 - Focused on understanding agent planning and tool execution
 - Retained in the repository for reference and experimentation
@@ -38,8 +38,6 @@ This project has gone through multiple architectural changes:
 - Improved reliability, debuggability, and control flow
 - Clear separation of concerns between nodes (scraping, writing, asset generation)
 - Deterministic execution with structured state passing
-
-The smolAgents implementation is currently what you see, but I'm actively working on LangGraph implementation.
 
 ---
 
