@@ -19,6 +19,7 @@ The system uses **LangGraph** to orchestrate a multi-step workflow that:
 - Bark Text-to-Speech
 - Wikipedia API
 - Python
+- PyTorch
 
 ## Example Output
 
