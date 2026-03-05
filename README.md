@@ -36,7 +36,7 @@ Each run generates a folder like:
 
 
 
-These assets can be combined into a **short documentary-style video**.
+These assets can be combined into a **short-form documentary-style video**.
 
 ## Running the Pipeline
 
