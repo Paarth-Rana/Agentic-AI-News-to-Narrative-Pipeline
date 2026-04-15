@@ -42,13 +42,15 @@ This project focuses on **agent-based workflows**, where:
 
 ## Project Structure
 
-.
+```text
+
 ├── pipeline.py
 ├── utils.py
 ├── main.ipynb
+├── run.py
 ├── requirements.txt
-├── outputs/
-
+└── outputs/
+```
 ---
 
 ## How to Run
