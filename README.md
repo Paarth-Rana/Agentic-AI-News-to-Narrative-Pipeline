@@ -1,49 +1,95 @@
-# AI True Crime Story Generator
+# Agent-Based True Crime Content Generation Pipeline
 
-An Agentic AI pipeline that automatically generates **documentary-style crime short form content** based on real notorious criminals and crime cases using **Wikipedia, LLMs, image generation, and text-to-speech**.
+An **agentic AI pipeline** that automatically generates documentary-style video assets (script, images, and narration) from real-world crime cases.
 
-The system uses **LangGraph** to orchestrate a multi-step workflow that:
-1. Selects a real crime case
-2. Retrieves information from Wikipedia
-3. Generates a narration script using an LLM
-4. Splits the story into scenes
-5. Generates documentary-style images using Stable Diffusion
-6. Generates narration audio using Bark TTS
-7. Exports assets for video creation
+The system uses a multi-step workflow powered by **LangGraph**, where an AI agent selects a topic, gathers information, and generates consistent multimedia content.
 
-## Technologies
+---
 
-- LangGraph
-- HuggingFace Transformers
-- Stable Diffusion (SDXL Turbo)
-- Bark Text-to-Speech
-- Wikipedia API
-- Python
-- PyTorch
+## What It Does
+
+Given an optional input topic, the pipeline:
+
+1. Selects a real true-crime case (or uses user input)  
+2. Retrieves factual information from Wikipedia  
+3. Generates a structured narration script using an LLM  
+4. Splits the story into scenes  
+5. Generates realistic documentary-style images  
+6. Generates voice narration using text-to-speech  
+7. Exports all assets for video creation  
+
+---
+
+## Key Idea
+
+This project focuses on **agent-based workflows**, where:
+
+- Each step is handled by a node in a LangGraph pipeline  
+- The system makes decisions (topic selection, filtering, structuring)  
+- Outputs are kept aligned across text, images, and audio  
+
+---
+
+## Tech Stack
+
+- **LangGraph** – agent workflow orchestration  
+- **Transformers (Hugging Face)** – LLM + TTS  
+- **Stable Diffusion (SDXL Turbo)** – image generation  
+- **Bark** – text-to-speech  
+- **PyTorch** – model execution  
+- **Wikipedia API** – factual data source  
+
+---
+
+## Project Structure
+
+├── pipeline.py
+├── utils.py
+├── main.ipynb
+├── requirements.txt
+├── outputs/
+
+---
+
+## How to Run
+
+### Option 1: Notebook
+
+```python
+from pipeline import run_pipeline
+
+state = run_pipeline("")
+```
+---
 
 ## Example Output
 
-Each run generates a folder like:
+outputs/
+  case_name_timestamp/
+    story.txt
+    sections.json
+    img_01.png
+    img_02.png
+    audio_01.wav
+    audio_02.wav
+    manifest.json
 
-- video_assets/
-- case_name_timestamp/
-- story.txt
-- sections.json
-- img_01.png
-- img_02.png
-- audio_01.wav
-- audio_02.wav
-- manifest.json
+---
 
+## Current Limitations / Work in Progress
 
+- Image generation is not always perfectly consistent with the story
+- Audio narration can sometimes sound unnatural or misaligned
+- Outputs may occasionally drift from the selected topic
+- Final video stitching is not yet implemented
 
-These assets can be combined into a **short-form documentary-style video**.
+This project is still being improved to increase consistency, realism, and reliability across all generated assets.
 
-## Running the Pipeline
+---
 
-```python
-state = app.invoke({"query": ""})
+## Future Improvements
 
-print("Chosen:", state.get("source_title"))
-print("Wiki:", state.get("source_url"))
-print("Output folder:", state.get("out_dir"))
+- Automatic video generation (combine images + audio into final video)
+- Improved consistency between script, images, and narration
+- Better topic selection and filtering
+- Optional UI or web interface
