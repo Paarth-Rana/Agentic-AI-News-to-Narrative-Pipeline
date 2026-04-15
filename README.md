@@ -8,7 +8,7 @@ The system uses a multi-step workflow powered by **LangGraph**, where an AI agen
 
 ## What It Does
 
-1. Selects a real true-crime case  
+1. Selects a real true-crime case (optionally guided by user input)
 2. Retrieves factual information from Wikipedia  
 3. Generates a structured narration script using an LLM  
 4. Splits the story into scenes  
@@ -22,8 +22,9 @@ The system uses a multi-step workflow powered by **LangGraph**, where an AI agen
 
 This project focuses on **agent-based workflows**, where:
 
-- Each step is handled by a node in a LangGraph pipeline  
-- The system makes decisions (topic selection, filtering, structuring)  
+- Each step is handled by a node in a LangGraph pipeline
+- Accepts optional user input to guide topic selection while ensuring a specific, valid case is chosen
+- The system makes decisions (topic selection, filtering, validation, structuring)
 - Outputs are kept aligned across text, images, and audio  
 
 ---
@@ -64,6 +65,11 @@ state = run_pipeline("")
 
 ```python
 python run.py
+```
+or provide a topic:
+
+```python
+python run.py "D. B. Cooper"
 ```
 ---
 
